@@ -1,0 +1,40 @@
+body {
+    background-color: blueviolet;
+    padding-top: 30px;
+}
+
+
+
+.game-area {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(8, 100px);
+    grid-template-rows: repeat(8, 100px);
+    width: max-content;
+    margin: 0 auto;
+    border: 3px solid rgb(88, 19, 19);
+}
+
+.box {
+    position: relative;
+    background-color: yellow;
+}
+
+.bi {
+    font-size: 90px;
+}
+
+.bi::before {
+    /* display: flex;
+    justify-content: center;
+    line-height: 100px; */
+    color: rgba(167, 8, 8, 0.719);
+}
+
+
+#item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
