@@ -27,36 +27,8 @@ for (let x = 1; x < arrayBox.length; x++) {
 }
 
 
-// const item = document.getElementById(`item`);
-// let isDown = false;
 
-// item.addEventListener(`mousedown`, function () {
-//   isDown = true;
-//   console.log(isDown);
-// }, true);
-
-// document.addEventListener(`mouseup`, function () {
-//   isDown = false;
-//   console.log(isDown);
-// }, true);
-
-// document.addEventListener(`mousemove`, function (event) {
-//   event.preventDefault();
-//   if (isDown) {
-//     const deltaX = event.movementX;
-//     const deltaY = event.movementY;
-
-//     console.log(deltaX);
-//     console.log(deltaY);
-
-
-//     const rect = item.getBoundingClientRect();
-//     item.style.left = rect.x + deltaX + "px";
-//     item.style.top = rect.y + deltaY + "px";
-//   }
-// }, true);
-
-
+// This code moves Circle to anywhere
 
 let offset = [0,0];
 const item = document.getElementById ("item");
@@ -81,6 +53,64 @@ document.addEventListener('mousemove', function(e) {
         item.style.top  = (e.clientY + offset[1]) + 'px';
    }
 }, true);
+
+
+// TESTMOVE TESTMOVE TESTMOVE TESTMOVE TESTMOVE
+
+let offsetTestMove = [0,0];
+const testMove = document.getElementById ("testMove");
+let isDownTest = false;
+
+testMove.addEventListener('mousedown', function(e) {
+isDownTest = true;
+offsetTestMove = [
+    testMove.offsetLeft - e.clientX,
+    testMove.offsetTop - e.clientY
+ ];
+}, true);
+
+document.addEventListener('mouseup', function() {
+   isDownTest = false;
+}, true);
+
+document.addEventListener('mousemove', function(e) {
+    e.preventDefault();
+    if (isDownTest) {
+        testMove.style.left = (e.clientX + offset[0]) + 'px';
+        testMove.style.top  = (e.clientY + offset[1]) + 'px';
+   }
+}, true);
+
+
+
+
+
+
+
+
+
+arrayBox.forEach((el, index) => {
+  el.addEventListener(`mouseup`, function() {
+    console.log(`mouseup on square ` + index);
+  });
+});
+
+
+arrayBox.forEach((element, index) => {
+  element.addEventListener(`click`, function() {
+    console.log(index + element);
+
+  })
+
+
+
+});
+
+
+
+
+
+
 
 
 
