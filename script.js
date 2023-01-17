@@ -29,7 +29,6 @@ for (let x = 1; x < arrayBox.length; x++) {
 
 
 // This code moves Circle to anywhere
-
 let offset = [0,0];
 const item = document.getElementById ("item");
 let isDown = false;
@@ -56,7 +55,6 @@ document.addEventListener('mousemove', function(e) {
 
 
 // TESTMOVE TESTMOVE TESTMOVE TESTMOVE TESTMOVE
-
 let offsetTestMove = [0,0];
 const testMove = document.getElementById ("testMove");
 let isDownTest = false;
@@ -87,25 +85,11 @@ document.addEventListener('mousemove', function(e) {
 
 
 
-
-
 arrayBox.forEach((el, index) => {
   el.addEventListener(`mouseup`, function() {
     console.log(`mouseup on square ` + index);
   });
 });
-
-
-arrayBox.forEach((element, index) => {
-  element.addEventListener(`click`, function() {
-    console.log(index + element);
-
-  })
-
-
-
-});
-
 
 
 
