@@ -55,29 +55,30 @@ document.addEventListener('mousemove', function(e) {
 
 
 // TESTMOVE TESTMOVE TESTMOVE TESTMOVE TESTMOVE
-let offsetTestMove = [0,0];
-const testMove = document.getElementById ("testMove");
-let isDownTest = false;
 
-testMove.addEventListener('mousedown', function(e) {
-isDownTest = true;
-offsetTestMove = [
-    testMove.offsetLeft - e.clientX,
-    testMove.offsetTop - e.clientY
- ];
-}, true);
+// let offsetTestMove = [0,0];
+// const testMove = document.getElementById ("testMove");
+// let isDownTest = false;
 
-document.addEventListener('mouseup', function() {
-   isDownTest = false;
-}, true);
+// testMove.addEventListener('mousedown', function(e) {
+// isDownTest = true;
+// offsetTestMove = [
+//     testMove.offsetLeft - e.clientX,
+//     testMove.offsetTop - e.clientY
+//  ];
+// }, true);
 
-document.addEventListener('mousemove', function(e) {
-    e.preventDefault();
-    if (isDownTest) {
-        testMove.style.left = (e.clientX + offset[0]) + 'px';
-        testMove.style.top  = (e.clientY + offset[1]) + 'px';
-   }
-}, true);
+// document.addEventListener('mouseup', function() {
+//    isDownTest = false;
+// }, true);
+
+// document.addEventListener('mousemove', function(e) {
+//     e.preventDefault();
+//     if (isDownTest) {
+//         testMove.style.left = (e.clientX + offset[0]) + 'px';
+//         testMove.style.top  = (e.clientY + offset[1]) + 'px';
+//    }
+// }, true);
 
 
 
