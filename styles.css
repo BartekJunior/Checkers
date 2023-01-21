@@ -1,9 +1,6 @@
 body {
-    /* background-color: blueviolet; */
     padding-top: 30px;
 }
-
-
 
 .game-area {
     position: relative;
@@ -16,36 +13,15 @@ body {
 }
 
 .box {
-    position: relative;
     background-color: yellow;
-}
-
-.bi {
-    font-size: 90px;
-}
-
-.bi {
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    line-height: 100px; */
+    align-items: center;
+}
+
+.bi {
+    font-size: 80px;
     color: rgba(167, 8, 8, 0.719);
+    cursor: pointer;
 }
 
-
-#item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* z-index: 1; */
-}
-
-#testMove {
-    background-color: brown;
-    width: 50px;
-    height: 50px;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* z-index: 10; */
-}

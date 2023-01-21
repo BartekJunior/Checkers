@@ -28,30 +28,64 @@ for (let x = 1; x < arrayBox.length; x++) {
 
 
 
-// This code moves Circle to anywhere
-let offset = [0,0];
-const item = document.getElementById ("item");
+const biNode = document.querySelectorAll(`.bi`);
+const biArray = Array.from(biNode);
+
+
 let isDown = false;
 
-item.addEventListener('mousedown', function(e) {
-isDown = true;
-offset = [
-    item.offsetLeft - e.clientX,
-    item.offsetTop - e.clientY
- ];
-}, true);
 
-document.addEventListener('mouseup', function() {
-   isDown = false;
-}, true);
 
-document.addEventListener('mousemove', function(e) {
-    e.preventDefault();
-    if (isDown) {
-        item.style.left = (e.clientX + offset[0]) + 'px';
-        item.style.top  = (e.clientY + offset[1]) + 'px';
-   }
-}, true);
+for (let i = 0; i < biArray.length; i++) {
+  biArray[i].addEventListener(`mousedown`, function () {
+    isDown = true;
+    console.log(i);
+
+    arrayBox.forEach((el, index) => {
+      el.addEventListener(`mouseup`, function () {
+        isDown === true ? el.appendChild(biArray[i]) : null;
+        isDown = false;
+      });
+    });
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// This code moves Circle to anywhere
+
+// let offset = [0,0];
+// const item = document.getElementById ("item");
+// let isDown = false;
+
+// item.addEventListener('mousedown', function(e) {
+// isDown = true;
+// offset = [
+//     item.offsetLeft - e.clientX,
+//     item.offsetTop - e.clientY
+//  ];
+// }, true);
+
+// document.addEventListener('mouseup', function() {
+//    isDown = false;
+// }, true);
+
+// document.addEventListener('mousemove', function(e) {
+//     e.preventDefault();
+//     if (isDown) {
+//         item.style.left = (e.clientX + offset[0]) + 'px';
+//         item.style.top  = (e.clientY + offset[1]) + 'px';
+//    }
+// }, true);
 
 
 // TESTMOVE TESTMOVE TESTMOVE TESTMOVE TESTMOVE
@@ -80,49 +114,3 @@ document.addEventListener('mousemove', function(e) {
 //    }
 // }, true);
 
-
-
-
-
-
-
-arrayBox.forEach((el, index) => {
-  el.addEventListener(`mouseup`, function() {
-    console.log(`mouseup on square ` + index);
-  });
-});
-
-
-
-
-
-
-
-
-
-
-// ------------------- THIS IS FOR ITEMX -------------------
-
-// const offsetX = [0,0];
-// const itemX = document.getElementById ("itemX");
-// let isDownX = false;
-
-// itemX.addEventListener('mousedown', function(e) {
-// isDownX = true;
-// offsetX = [
-//     itemX.offsetLeft - e.clientX,
-//     itemX.offsetTop - e.clientY
-//  ];
-// }, true);
-
-// document.addEventListener('mouseup', function() {
-//    isDownX = false;
-// }, true);
-
-// document.addEventListener('mousemove', function(e) {
-//     e.preventDefault();
-//     if (isDown) {
-//         itemX.style.left = (e.clientX + offsetX[0]) + 'px';
-//         itemX.style.top  = (e.clientY + offsetX[1]) + 'px';
-//    }
-// }, true);
