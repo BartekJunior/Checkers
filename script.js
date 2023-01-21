@@ -32,23 +32,55 @@ const biNode = document.querySelectorAll(`.bi`);
 const biArray = Array.from(biNode);
 
 
+
+
+// for (let i = 0; i < biArray.length; i++) {
+//   biArray[i].addEventListener(`mousedown`, function () {
+//     isDown = true;
+//     console.log(i);
+
+//     arrayBox.forEach((el, index) => {
+//       el.addEventListener(`mouseup`, function () {
+//         isDown === true ? el.appendChild(biArray[i]) : null;
+//         isDown = false;
+//       });
+//     });
+//   })
+// }
+
+
+const gameArea = document.getElementById(`gameArea`);
+console.log(gameArea);
+
+
+let moveChecker;
 let isDown = false;
 
-
-
-for (let i = 0; i < biArray.length; i++) {
-  biArray[i].addEventListener(`mousedown`, function () {
+gameArea.addEventListener(`mousedown`, function (event) {
+  if (event.target.tagName === `I`) {
+    moveChecker = event.target;
     isDown = true;
-    console.log(i);
+  }
+})
 
-    arrayBox.forEach((el, index) => {
-      el.addEventListener(`mouseup`, function () {
-        isDown === true ? el.appendChild(biArray[i]) : null;
-        isDown = false;
-      });
-    });
-  })
-}
+gameArea.addEventListener(`mouseup`, function (event) {
+  (isDown === true && event.target.tagName === `DIV`) ? event.target.appendChild(moveChecker) : console.log(`false`);
+  isDown = false;
+})
+
+
+
+
+
+
+
+
+// gameArea.addEventListener(`click`, (event) => {
+//   event.target.tagName === `DIV` ? console.log(event.target) : console.log(`false`);;
+// }) THIS IS THE SAME AS BELOW
+
+
+
 
 
 
