@@ -2,13 +2,31 @@ body {
     padding-top: 30px;
 }
 
+.container-fluid {
+    display: flex;
+    justify-content: space-around;
+}
+
+#circleGreen {
+    color: rgb(8, 165, 8);
+}
+
+#circleRed {
+    color: rgb(223, 13, 23);
+}
+
+.player-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+}
+
 .game-area {
-    position: relative;
     display: grid;
     grid-template-columns: repeat(8, 100px);
     grid-template-rows: repeat(8, 100px);
-    width: max-content;
-    margin: 0 auto;
     border: 3px solid rgb(88, 19, 19);
 }
 
@@ -21,7 +39,5 @@ body {
 
 .bi {
     font-size: 80px;
-    color: rgba(167, 8, 8, 0.719);
     cursor: pointer;
 }
-

@@ -28,10 +28,8 @@ for (let x = 1; x < arrayBox.length; x++) {
 
 
 
-const biNode = document.querySelectorAll(`.bi`);
-const biArray = Array.from(biNode);
-
-
+// const biNode = document.querySelectorAll(`.bi`);
+// const biArray = Array.from(biNode);
 
 
 // for (let i = 0; i < biArray.length; i++) {
@@ -49,10 +47,27 @@ const biArray = Array.from(biNode);
 // }
 
 
+
+// -----------PLACE ALL CIRCLES ON BOARD
+const circleGreen = document.getElementById(`circleGreen`);
+const circleRed = document.getElementById(`circleRed`);
+
+for (let i = 1; i < arrayBox.length; i++) {
+  if (arrayBox[i].style.backgroundColor === `white` && i < 25) {
+    const clone = circleRed.cloneNode(true);
+    arrayBox[i].appendChild(clone);
+  }
+}
+
+for (let i = 1; i < arrayBox.length; i++) {
+  if (arrayBox[i].style.backgroundColor === `white` && i > 40) {
+    const clone = circleGreen.cloneNode(true);
+    arrayBox[i].appendChild(clone);
+  }
+}
+
+// -----------MOVE CIRCLE TO ANOTHER SPOT
 const gameArea = document.getElementById(`gameArea`);
-console.log(gameArea);
-
-
 let moveChecker;
 let isDown = false;
 
@@ -75,9 +90,17 @@ gameArea.addEventListener(`mouseup`, function (event) {
 
 
 
-// gameArea.addEventListener(`click`, (event) => {
-//   event.target.tagName === `DIV` ? console.log(event.target) : console.log(`false`);;
-// }) THIS IS THE SAME AS BELOW
+
+
+for (let i = 1; i < arrayBox.length; i++) {
+
+}
+
+
+
+
+
+
 
 
 
