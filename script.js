@@ -68,38 +68,68 @@ for (let i = 1; i < arrayBox.length; i++) {
 
 // -----------MOVE CIRCLE TO ANOTHER SPOT
 const gameArea = document.getElementById(`gameArea`);
-let moveChecker;
+let moveCircle;
+let checkMove;
 let isDown = false;
+
+for (let i = 1; i < arrayBox.length; i++) {
+  arrayBox[i].value = i;
+}
 
 gameArea.addEventListener(`mousedown`, function (event) {
   if (event.target.tagName === `I`) {
-    moveChecker = event.target;
+    moveCircle = event.target;
+    checkMove = event.target.parentNode.value;
+    console.log(checkMove);
     isDown = true;
   }
 })
 
 gameArea.addEventListener(`mouseup`, function (event) {
-  (isDown === true && event.target.tagName === `DIV`) ? event.target.appendChild(moveChecker) : console.log(`false`);
-  isDown = false;
+  if ((event.target.value === checkMove + 7) ||
+    (event.target.value === checkMove - 7) ||
+    (event.target.value === checkMove + 9) ||
+    (event.target.value === checkMove - 9)) {
+    (isDown === true && event.target.tagName === `DIV`) ? event.target.appendChild(moveCircle) : null;
+    isDown = false;
+  }
 })
 
 
+// for (let i = 1; i < arrayBox.length; i++) {
+//   arrayBox[i].addEventListener(`click`, function() {
+//     console.log(arrayBox[i]);
+//   })
+// }
 
 
 
 
 
+// arrayBox.forEach(el => {
+//   console.log(el.value);
+// })
 
 
 
-for (let i = 1; i < arrayBox.length; i++) {
+// arrayBox.forEach((el, index) => {
+//   el.value = 77;
+// })
+// console.log(arrayBox[9].value);
+// console.log(arrayBox[11].value);
 
-}
 
 
 
 
+// let arrayNumber;
 
+// arrayBox.forEach((el, index) => {
+//   el.addEventListener(`click`, function() {
+//     arrayNumber = `arrayBox` + `[` + index + `]`;
+//     console.log(arrayNumber);
+//   })
+// })
 
 
 
