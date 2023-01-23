@@ -90,10 +90,34 @@ gameArea.addEventListener(`mouseup`, function (event) {
     (event.target.value === checkMove - 7) ||
     (event.target.value === checkMove + 9) ||
     (event.target.value === checkMove - 9)) {
-    (isDown === true && event.target.tagName === `DIV`) ? event.target.appendChild(moveCircle) : null;
-    isDown = false;
+
+
+    if (isDown === true && event.target.tagName === `DIV`) {
+      event.target.appendChild(moveCircle);
+      console.log(event.target.tagName);
+      isDown = false;
+    }
+
+  } else if ((event.target.parentNode.value === checkMove + 7) ||
+    (event.target.parentNode.value === checkMove - 7) ||
+    (event.target.parentNode.value === checkMove + 9) ||
+    (event.target.parentNode.value === checkMove - 9)) {
+
+    if (arrayBox[checkMove + 18].childElementCount === 0) {
+      arrayBox[checkMove + 18].appendChild(moveCircle);
+    }
+
+
+
+
+  } else {
+    console.log(`checkmove isnt applied`);
+    console.log(event.target);
   }
 })
+
+
+
 
 
 // for (let i = 1; i < arrayBox.length; i++) {
