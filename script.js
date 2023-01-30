@@ -77,15 +77,9 @@ greenColletion0 = Array.from(greenColletion0);
 for (let i = 0; i < greenColletion0.length; i++) {
   greenColletion[i] = greenColletion0[i];
 }
-
-
-
-
 for (let i = 0; i < greenColletion0.length; i++) {
-  greenColletion[i].value = greenColletion[i].parentNode.value ;
+  greenColletion[i].value = greenColletion[i].parentNode.value;
 }
-
-
 
 
 
@@ -119,10 +113,8 @@ for (let i = 1; i < arrayBox.length; i++) {
 
 
 gameArea.addEventListener(`click`, function (event) {
- console.log(event.target.value);
+  console.log(event);
 })
-
-
 
 
 
@@ -147,12 +139,12 @@ gameArea.addEventListener(`mouseup`, function (event) {
       isDown = false;
     }
 
-    for (let i = 1; i < greenColletion.length; i++) {
-      greenColletion[i].value = greenColletion[i].parentNode.value;
-      console.log(greenColletion[i].value);
-    }
-    
   }
+
+  for (let i = 1; i < greenColletion.length; i++) {
+    greenColletion[i].value = greenColletion[i].parentNode.value;
+  }
+
 })
 
 
@@ -172,7 +164,14 @@ gameArea.addEventListener(`mouseup`, function (event) {
       event.target.appendChild(circleRedPicked);
       isDown = false;
     }
+
   }
+
+  for (let i = 1; i < redColletion.length; i++) {
+    redColletion[i].value = redColletion[i].parentNode.value;
+  }
+
+
 })
 
 
@@ -181,10 +180,12 @@ gameArea.addEventListener(`mouseup`, function (event) {
 gameArea.addEventListener(`mouseup`, function (event) {
   if ((event.target.value === checkMoveGreen - 7) || (event.target.value === checkMoveGreen - 9)) {
 
-    if (true) {
-      console.log(event.target.tagName);
+    if (event.target.id === `circleRed` && arrayBox[event.target.value - 9].childElementCount === 0) {
+      arrayBox[event.target.value - 9].appendChild(circleGreenPicked);
+    } else if
+      (event.target.id === `circleRed` && arrayBox[event.target.value - 7].childElementCount === 0) {
+      arrayBox[event.target.value - 7].appendChild(circleGreenPicked);
     }
-
 
 
   }
