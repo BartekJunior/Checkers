@@ -67,28 +67,46 @@ for (let i = 1; i < arrayBox.length; i++) {
 }
 
 
+
+
 // -----------PLACE CIRCLES IN VARIABLES, MAKE COLLECTIONS
 const greenColletion = [];
 let greenColletion0 = document.querySelectorAll(`#circleGreen`);
 greenColletion0 = Array.from(greenColletion0);
-
-console.log(greenColletion0);
 
 for (let i = 0; i < greenColletion0.length; i++) {
   greenColletion[i] = greenColletion0[i];
 }
 
 
-console.log(greenColletion);
+
+
+for (let i = 0; i < greenColletion0.length; i++) {
+  greenColletion[i].value = greenColletion[i].parentNode.value ;
+}
 
 
 
 
 
+const redColletion = [];
+let redColletion0 = document.querySelectorAll(`#circleRed`);
+redColletion0 = Array.from(redColletion0);
+
+for (let i = 0; i < redColletion0.length; i++) {
+  redColletion[i + 1] = redColletion0[i];
+}
+
+
+
+
+
+// ----------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------
 // -----------MOVE CIRCLE TO ANOTHER SPOT
 const gameArea = document.getElementById(`gameArea`);
-let moveCircleGreen;
-let moveCircleRed;
+let circleGreenPicked;
+let circleRedPicked;
 let checkMoveGreen;
 let checkMoveRed;
 let isDown = false;
@@ -98,10 +116,24 @@ for (let i = 1; i < arrayBox.length; i++) {
 }
 
 
+
+
+gameArea.addEventListener(`click`, function (event) {
+ console.log(event.target.value);
+})
+
+
+
+
+
+
+
+
+
 // Move green circles
 gameArea.addEventListener(`mousedown`, function (event) {
   if (event.target.id === `circleGreen`) {
-    moveCircleGreen = event.target;
+    circleGreenPicked = event.target;
     checkMoveGreen = event.target.parentNode.value;
     isDown = true;
   }
@@ -111,9 +143,15 @@ gameArea.addEventListener(`mouseup`, function (event) {
   if ((event.target.value === checkMoveGreen - 7) || (event.target.value === checkMoveGreen - 9)) {
 
     if (isDown === true && event.target.tagName === `DIV`) {
-      event.target.appendChild(moveCircleGreen);
+      event.target.appendChild(circleGreenPicked);
       isDown = false;
     }
+
+    for (let i = 1; i < greenColletion.length; i++) {
+      greenColletion[i].value = greenColletion[i].parentNode.value;
+      console.log(greenColletion[i].value);
+    }
+    
   }
 })
 
@@ -121,7 +159,7 @@ gameArea.addEventListener(`mouseup`, function (event) {
 // Move red circles
 gameArea.addEventListener(`mousedown`, function (event) {
   if (event.target.id === `circleRed`) {
-    moveCircleRed = event.target;
+    circleRedPicked = event.target;
     checkMoveRed = event.target.parentNode.value;
     isDown = true;
   }
@@ -131,11 +169,31 @@ gameArea.addEventListener(`mouseup`, function (event) {
   if ((event.target.value === checkMoveRed + 7) || (event.target.value === checkMoveRed + 9)) {
 
     if (isDown === true && event.target.tagName === `DIV`) {
-      event.target.appendChild(moveCircleRed);
+      event.target.appendChild(circleRedPicked);
       isDown = false;
     }
   }
 })
+
+
+// GREEN KILLS RED
+
+gameArea.addEventListener(`mouseup`, function (event) {
+  if ((event.target.value === checkMoveGreen - 7) || (event.target.value === checkMoveGreen - 9)) {
+
+    if (true) {
+      console.log(event.target.tagName);
+    }
+
+
+
+  }
+})
+
+
+
+
+
 
 
 
