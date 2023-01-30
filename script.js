@@ -138,13 +138,11 @@ gameArea.addEventListener(`mouseup`, function (event) {
       event.target.appendChild(circleGreenPicked);
       isDown = false;
     }
-
   }
 
   for (let i = 1; i < greenColletion.length; i++) {
     greenColletion[i].value = greenColletion[i].parentNode.value;
   }
-
 })
 
 
@@ -164,32 +162,59 @@ gameArea.addEventListener(`mouseup`, function (event) {
       event.target.appendChild(circleRedPicked);
       isDown = false;
     }
-
   }
 
   for (let i = 1; i < redColletion.length; i++) {
     redColletion[i].value = redColletion[i].parentNode.value;
   }
-
-
 })
+
+
+
 
 
 // GREEN KILLS RED
-
 gameArea.addEventListener(`mouseup`, function (event) {
-  if ((event.target.value === checkMoveGreen - 7) || (event.target.value === checkMoveGreen - 9)) {
+  if (event.target.value === (checkMoveGreen - 9)) {
 
     if (event.target.id === `circleRed` && arrayBox[event.target.value - 9].childElementCount === 0) {
       arrayBox[event.target.value - 9].appendChild(circleGreenPicked);
-    } else if
-      (event.target.id === `circleRed` && arrayBox[event.target.value - 7].childElementCount === 0) {
-      arrayBox[event.target.value - 7].appendChild(circleGreenPicked);
-    }
-
-
+      event.target.style.display = `none`;
+    } else (null)
   }
 })
+
+
+gameArea.addEventListener(`mouseup`, function (event) {
+  if (event.target.value === (checkMoveGreen - 7)) {
+
+    if (event.target.id === `circleRed` && arrayBox[event.target.value - 7].childElementCount === 0) {
+      arrayBox[event.target.value - 7].appendChild(circleGreenPicked);
+      event.target.style.display = `none`;
+    } else (null)
+  }
+})
+
+
+
+
+
+
+
+// gameArea.addEventListener(`mouseup`, function (event) {
+//   if ((event.target.value === checkMoveGreen - 7) || (event.target.value === checkMoveGreen - 9)) {
+
+//     if (event.target.id === `circleRed` && arrayBox[event.target.value - 9].childElementCount === 0) {
+//       arrayBox[event.target.value - 9].appendChild(circleGreenPicked);
+
+//     } else if
+//       (event.target.id === `circleRed` && arrayBox[event.target.value - 7].childElementCount === 0) {
+//       arrayBox[event.target.value - 7].appendChild(circleGreenPicked);
+//     }
+
+
+//   }
+// })
 
 
 
