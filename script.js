@@ -111,12 +111,10 @@ for (let i = 1; i < arrayBox.length; i++) {
 
 
 
-
 gameArea.addEventListener(`click`, function (event) {
-  console.log(event);
+  console.log(event.target);
+  console.log(event.target.value);
 })
-
-
 
 
 
@@ -180,20 +178,22 @@ gameArea.addEventListener(`mouseup`, function (event) {
     if (event.target.id === `circleRed` && arrayBox[event.target.value - 9].childElementCount === 0) {
       arrayBox[event.target.value - 9].appendChild(circleGreenPicked);
       event.target.style.display = `none`;
-    } else (null)
+      isDown = false;
+    }
   }
 })
 
 
-gameArea.addEventListener(`mouseup`, function (event) {
-  if (event.target.value === (checkMoveGreen - 7)) {
+// gameArea.addEventListener(`mouseup`, function (event) {
+//   if (event.target.value === (checkMoveGreen - 7)) {
 
-    if (event.target.id === `circleRed` && arrayBox[event.target.value - 7].childElementCount === 0) {
-      arrayBox[event.target.value - 7].appendChild(circleGreenPicked);
-      event.target.style.display = `none`;
-    } else (null)
-  }
-})
+//     if (event.target.id === `circleRed` && arrayBox[event.target.value - 7].childElementCount === 0) {
+//       arrayBox[event.target.value - 7].appendChild(circleGreenPicked);
+//       event.target.style.display = `none`;
+//       isDown = false;
+//     }
+//   }
+// })
 
 
 
